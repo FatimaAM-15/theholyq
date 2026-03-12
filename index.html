@@ -1,26 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
+
 <title>The Holy Quran</title>
 
 <style>
+
 body{
 font-family: Arial;
-margin:0;
 background:#0f172a;
 color:white;
 text-align:center;
+margin:0;
 }
 
 header{
 background:#020617;
-padding:20px;
+padding:25px;
 font-size:28px;
-font-weight:bold;
 }
 
-section{
+button{
+padding:15px 30px;
+margin:20px;
+font-size:18px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+background:#22c55e;
+color:white;
+}
+
+button:hover{
+background:#16a34a;
+}
+
+.section{
+display:none;
 padding:30px;
 }
 
@@ -31,15 +47,26 @@ border:none;
 border-radius:10px;
 }
 
-.audio-player{
-margin-top:20px;
-}
-
 audio{
 width:80%;
-margin:10px;
+margin:15px;
 }
+
 </style>
+
+<script>
+
+function showSection(sectionId){
+
+document.getElementById("home").style.display="none";
+document.getElementById("read").style.display="none";
+document.getElementById("listen").style.display="none";
+
+document.getElementById(sectionId).style.display="block";
+
+}
+
+</script>
 
 </head>
 
@@ -47,37 +74,63 @@ margin:10px;
 
 <header>
 The Holy Quran
-<p style="font-size:16px;">Read and listen to the Holy Quran</p>
 </header>
 
-<section>
 
-<h2>Read Quran</h2>
+<div id="home">
+
+<h2>Choose what you want to do</h2>
+
+<button onclick="showSection('read')">📖 Read Quran</button>
+
+<button onclick="showSection('listen')">🎧 Listen to Quran</button>
+
+</div>
+
+
+
+<div id="read" class="section">
+
+<h2>Read the Holy Quran</h2>
+
+<button onclick="showSection('home')">⬅ Back</button>
+
+<br><br>
 
 <iframe src="https://theholyquran.atoms.world/"></iframe>
 
-</section>
+</div>
 
 
-<section>
+
+<div id="listen" class="section">
 
 <h2>Listen to Quran</h2>
 
-<div class="audio-player">
+<button onclick="showSection('home')">⬅ Back</button>
 
-<p>Surah Al-Fatiha</p>
-<audio controls>
-<source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/001.mp3" type="audio/mpeg">
-</audio>
+<br><br>
 
 <p>Surah Al-Ikhlas</p>
+
 <audio controls>
 <source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/112.mp3" type="audio/mpeg">
 </audio>
 
+<p>Surah Al-Falaq</p>
+
+<audio controls>
+<source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/113.mp3" type="audio/mpeg">
+</audio>
+
+<p>Surah An-Nas</p>
+
+<audio controls>
+<source src="https://download.quranicaudio.com/quran/mishaari_raashid_al_3afaasee/114.mp3" type="audio/mpeg">
+</audio>
+
 </div>
 
-</section>
 
 </body>
 </html>
